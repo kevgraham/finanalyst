@@ -1,0 +1,290 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #4DB6AC;
+  font-family: 'Raleway';
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+/* REGULAR NAV */
+nav {
+  background: #363636;
+  width: 100%;
+  height: 48px;
+  position: absolute;
+  z-index: 1;
+}
+
+nav a {
+  float: right;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+nav a:hover {
+  background-color: #4F4F4F;
+}
+
+nav .left-bar {
+  float: left;
+}
+
+nav .home:hover {
+  background: #363636;
+}
+
+nav #logout {
+  float: right;
+  color: #FFFFFF;
+  background-color:
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  #363636
+}
+
+/* MOBILE NAV */
+#menu-icon {
+  display: none;
+  float: right;
+  font-size: 32px;
+  padding: 8px;
+  margin: 0px;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 739px) {
+  #menu-icon {
+    display: inline-block;
+  }
+
+  .menu-item {
+    display: none;
+    width: 100%;
+    float: right;
+    text-align: right;
+    background-color: #363636;
+  }
+
+  .navbar a {
+    display: block;
+    padding: 0;
+  }
+}
+
+/* HELPER CLASSES */
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+
+.info-box {
+  background: #FFFFFF;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.info-box h1 {
+  padding: 8px;
+}
+
+/* BASIC FORM */
+.center-form {
+  width: 80%;
+  padding: 32px;
+  min-width: 280px;
+  max-width: 400px;
+}
+
+form h2 {
+  margin-bottom: 16px;
+}
+
+fieldset {
+  border: none;
+}
+
+form input {
+  font-family: 'Raleway';
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+form button {
+  font-family: 'Raleway';
+  text-transform: uppercase;
+  outline: 0;
+  background: #363636;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  margin: 0;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+form button:hover,.form button:active,.form button:focus {
+  background: #4F4F4F;
+}
+
+/* Non-form Pages*/
+.inner-wrapper {
+  width: 80%;
+  min-width: 280px;
+  max-width: 800px;
+  height: 75%;
+  overflow: hidden;
+}
+
+.inner-wrapper h1 {
+  margin-bottom: 32px;
+}
+
+.inner-wrapper p {
+  text-align: left;
+}
+
+/* WATCHLIST */
+.watchlist {
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+.scroll-list {
+  overflow-y: scroll;
+  height: 220px;
+  width: 320px;
+  margin: auto;
+  padding: 8px;
+}
+
+.stock-listing {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.stock-listing:hover {
+  background-color: #363636;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.stock-listing .listing-left {
+  width: 70%;
+}
+
+.stock-listing .listing-right {
+  width: 30%;
+}
+
+hr {
+  width: 100%;
+  height: 2px;
+  margin-top: 8px;
+}
+
+.stock-chart {
+  display: none;
+}
+
+.add-stock {
+  display: inline-block;
+  width: 100%;
+  margin: 32px auto;
+}
+
+.add-stock input {
+  max-width: 120px;
+  margin: 0;
+  display: inline;
+  padding: 8px;
+  border: 2px solid #363636;
+}
+
+.add-stock button {
+  max-width: 80px;
+  margin: 0;
+  display: inline;
+  padding: 10px
+}
+
+.learn-more {
+  display: none;
+}
+
+/* NEWS LIST */
+.news-feed {
+  overflow-y: scroll;
+  height: 90%;
+  width: 90%;
+  margin: auto;
+  padding: 8px;
+}
+
+.article {
+  color: #363636;
+  width: 100%;
+  display: block;
+  text-decoration: none;
+}
+
+.article:hover {
+  background-color: #363636;
+  color: #FFFFFF;
+}
+
+/* MOBILE */
+@media screen and (min-width: 739px) {
+  .watchlist {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 3;
+  }
+
+  .heading {
+    grid-column-end: span 2;
+  }
+
+  .scroll-list {
+    width: 100%;
+  }
+
+  .stock-chart {
+    display: block;
+  }
+
+  .learn-more {
+    display: block;
+  }
+
+}

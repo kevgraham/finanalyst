@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="initial-scale=1, width=device-width" name="viewport"/>
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link th:href="@{/css/style.css}" href="../css/style.css"  rel="stylesheet"/>
+        <title>FinAnalyst</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <main>
+                <form class="center info-box center-form" th:action="@{/login}" method="post">
+
+                    <h2>Login</h2>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <input autocomplete="off" class="form-control" autofocus="true" required="true" name="username" id="username" placeholder="Username" type="text"/>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" name="password" id="password" placeholder="Password" required="true" type="password"/>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-default" type="submit">Log In</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </main>
+        </div>
+    </body>
+</html>
+
+

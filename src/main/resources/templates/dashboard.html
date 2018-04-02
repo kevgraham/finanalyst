@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <meta charset="utf-8"/>
+    <meta content="initial-scale=1, width=device-width" name="viewport"/>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link th:href="@{/css/style.css}" href="../css/style.css"  rel="stylesheet"/>
+    <title>FinAnalyst</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                <input type="submit" value="Sign Out"/>
+            </form>
+
+            <nav>
+                <!-- MOBILE -->
+                <i id="menu-icon" class="fa fa-navicon"></i>
+
+                <!-- REGULAR -->
+                <a class="left-bar" href="#">FinAnalyst</a>
+                <a class="menu-item" href="javascript: document.logoutForm.submit()">Logout</a>
+                <a class="menu-item" href="#" th:inline="text">[[${#httpServletRequest.remoteUser}]]</a>
+            </nav>
+
+            <main>
+                <div class="center info-box inner-wrapper">
+                <h1>News Feed</h1>
+                    <div class="news-feed">
+
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
+
+
