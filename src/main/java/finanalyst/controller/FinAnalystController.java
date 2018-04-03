@@ -16,14 +16,6 @@ public class FinAnalystController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/")
-    public String index(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByEmail(auth.getName());
-        model.addAttribute(user);
-        return "/dashboard";
-    }
-
     @GetMapping("/login")
     public String login() {
         return "/login";
@@ -37,9 +29,32 @@ public class FinAnalystController {
     }
 
     @PostMapping("/registration")
-    public String createNewUser(User user) {
-        userService.saveUser(user);
+    public String createNewUser(User user, Model model) {
+        User existingUser = userService.findUserByEmail(user.getEmail());
+
+        if (existingUser == null) {
+            userService.saveUser(user);
+            model.addAttribute(user);
+            return "/dashboard";
+        }
+
+        return "/registration";
+    }
+
+    @GetMapping("/")
+    public String index(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByEmail(auth.getName());
+        model.addAttribute(user);
         return "/dashboard";
+    }
+
+    @GetMapping("/admin/cpanel")
+    public String cpanel(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByEmail(auth.getName());
+        model.addAttribute(user);
+        return "admin/cpanel";
     }
 
     @GetMapping("/403")
