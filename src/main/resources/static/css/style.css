@@ -111,8 +111,8 @@ nav #logout {
 
 /* BASIC FORM */
 .center-form {
-  width: 80%;
-  padding: 32px;
+  width: 100%;
+  padding: 64px;
   min-width: 280px;
   max-width: 400px;
 }
@@ -157,6 +157,9 @@ form button:hover,.form button:active,.form button:focus {
   background: #4F4F4F;
 }
 
+form a {
+margin:0;}
+
 /* Non-form Pages*/
 .inner-wrapper {
   width: 80%;
@@ -175,94 +178,9 @@ form button:hover,.form button:active,.form button:focus {
 }
 
 /* WATCHLIST */
-.watchlist {
-  display: grid;
-  grid-template-columns: 100%;
-}
 
-.scroll-list {
-  overflow-y: scroll;
-  height: 220px;
-  width: 320px;
-  margin: auto;
-  padding: 8px;
-}
-
-.stock-listing {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.stock-listing:hover {
-  background-color: #363636;
-  color: #FFFFFF;
-  cursor: pointer;
-}
-
-.stock-listing .listing-left {
-  width: 70%;
-}
-
-.stock-listing .listing-right {
-  width: 30%;
-}
-
-hr {
-  width: 100%;
-  height: 2px;
-  margin-top: 8px;
-}
-
-.stock-chart {
-  display: none;
-}
-
-.add-stock {
-  display: inline-block;
-  width: 100%;
-  margin: 32px auto;
-}
-
-.add-stock input {
-  max-width: 120px;
-  margin: 0;
-  display: inline;
-  padding: 8px;
-  border: 2px solid #363636;
-}
-
-.add-stock button {
-  max-width: 80px;
-  margin: 0;
-  display: inline;
-  padding: 10px
-}
-
-.learn-more {
-  display: none;
-}
 
 /* NEWS LIST */
-.news-feed {
-  overflow-y: scroll;
-  height: 90%;
-  width: 90%;
-  margin: auto;
-  padding: 8px;
-}
-
-.article {
-  color: #363636;
-  width: 100%;
-  display: block;
-  text-decoration: none;
-}
-
-.article:hover {
-  background-color: #363636;
-  color: #FFFFFF;
-}
 
 /* MOBILE */
 @media screen and (min-width: 739px) {
@@ -273,18 +191,6 @@ hr {
 
   .heading {
     grid-column-end: span 2;
-  }
-
-  .scroll-list {
-    width: 100%;
-  }
-
-  .stock-chart {
-    display: block;
-  }
-
-  .learn-more {
-    display: block;
   }
 
 }

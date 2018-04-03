@@ -11,21 +11,21 @@
 
     <body>
         <div class="container">
-            <main class="center info-box">
-                <form class="center-form" th:action="@{/login}" method="post">
+            <main class = "center info-box">
+                <form class="center-form" th:action="@{/registration}" th:object="${user}" method="post">
 
-                    <h2>Login</h2>
+                    <h2>Registration</h2>
 
                     <fieldset>
-                        <input autocomplete="off" class="form-control" autofocus="true" required="true" name="username" id="username" placeholder="Username" type="text"/>
-                        <input class="form-control" name="password" id="password" placeholder="Password" required="true" type="password"/>
-                        <button class="btn btn-default" type="submit">Log In</button>
+                        <input class="form-control" th:field="*{email}" placeholder="Email" type="text"/>
+                        <input class="form-control" th:field="*{password}" placeholder="Password" type="password"/>
+                        <button class="btn" type="submit">Register</button>
                     </fieldset>
 
                 </form>
 
-                <form th:action="@{/registration}" method="get">
-                    <button class="btn" type="Submit">I don't have an account</button>
+                <form th:action="@{/login}" method="get">
+                    <button class="btn" type="Submit">I have an account</button>
                 </form>
 
             </main>

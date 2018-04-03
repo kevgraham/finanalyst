@@ -15,14 +15,14 @@
                 <input type="submit" value="Sign Out"/>
             </form>
 
-            <nav>
+            <nav th:object="${user}">
                 <!-- MOBILE -->
                 <i id="menu-icon" class="fa fa-navicon"></i>
 
                 <!-- REGULAR -->
                 <a class="left-bar" href="#">FinAnalyst</a>
                 <a class="menu-item" href="javascript: document.logoutForm.submit()">Logout</a>
-                <a class="menu-item" href="#" th:inline="text">[[${#httpServletRequest.remoteUser}]]</a>
+                <a class="menu-item" href="#" th:utext="${user.email}"></a>
             </nav>
 
             <main>
