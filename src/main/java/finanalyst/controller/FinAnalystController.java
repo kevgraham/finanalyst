@@ -30,7 +30,7 @@ public class FinAnalystController {
 
     @PostMapping("/registration")
     public String createNewUser(User user, Model model) {
-        User existingUser = userService.findUserByEmail(user.getEmail());
+        User existingUser = userService.findUserByUsername(user.getUsername());
 
         if (existingUser == null) {
             userService.saveUser(user);
@@ -44,7 +44,7 @@ public class FinAnalystController {
     @GetMapping("/")
     public String index(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByEmail(auth.getName());
+        User user = userService.findUserByUsername(auth.getName());
         model.addAttribute(user);
         return "/dashboard";
     }
@@ -52,7 +52,7 @@ public class FinAnalystController {
     @GetMapping("/admin/cpanel")
     public String cpanel(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByEmail(auth.getName());
+        User user = userService.findUserByUsername(auth.getName());
         model.addAttribute(user);
         return "admin/cpanel";
     }

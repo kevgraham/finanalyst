@@ -16,10 +16,10 @@ public class User {
     @Column(name = "user_id")
     private int id;
 
-    @Column(name = "email")
-    @Email(message = "*Please provide a valid email")
+    @Column(name = "username")
+    @Length(min = 5, message = "*Your username must have at least 5 characters")
     @NotEmpty
-    private String email;
+    private String username;
 
     @Column(name = "password")
     @Length(min = 5, message = "*Your password must have at least 5 characters")
@@ -39,14 +39,6 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPassword() {
@@ -71,5 +63,13 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
