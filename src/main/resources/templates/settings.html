@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="initial-scale=1, width=device-width" name="viewport"/>
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link th:href="@{/css/style.css}" href="../css/style.css"  rel="stylesheet"/>
+        <title>FinAnalyst</title>
+    </head>
+    <body>
+        <div class="container">
+            <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                <input type="submit" value="Sign Out"/>
+            </form>
+
+            <nav th:object="${user}">
+                <!-- MOBILE -->
+                <i id="menu-icon" class="fa fa-navicon"></i>
+
+                <!-- REGULAR -->
+                <a class="left-bar" href="#">FinAnalyst</a>
+                <a class="menu-item" href="javascript: document.logoutForm.submit()">Logout</a>
+                <a class="menu-item" href="/settings" th:utext="${user.username}"></a>
+            </nav>
+
+            <main class="center info-box">
+
+                <!--
+                UPDATE PASSWORD
+                -->
+                <form class="center-form" th:action="@{/settings}" th:method="put">
+                    <h1>Settings</h1>
+                    <div>
+                        <fieldset>
+                            <input class="form-control" name="password" id="password" th:placeholder="Password" required="true" type="password"/>
+                            <button class="btn btn-default" type="submit">Update Password</button>
+                        </fieldset>
+                    </div>
+                </form>
+
+                <!--
+                DELETE ACCOUNT
+                -->
+                <form class="center-form" th:action="@{/settings}" th:method="delete">
+                    <button class="btn btn-default" type="submit">Delete Account</button>
+                </form>
+
+            </main>
+        </div>
+    </body>
+</html>

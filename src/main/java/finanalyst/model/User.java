@@ -1,6 +1,5 @@
 package finanalyst.model;
 
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -29,7 +28,11 @@ public class User {
     @Column(name = "active")
     private int active;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany//(cascade = CascadeType.ALL)
+    (cascade = {
+        CascadeType.PERSIST,
+        CascadeType.MERGE
+    })
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 

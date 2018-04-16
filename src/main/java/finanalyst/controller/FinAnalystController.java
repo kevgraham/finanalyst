@@ -7,14 +7,24 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 @Controller
 public class FinAnalystController {
 
     @Autowired
     private UserService userService;
+
+    @GetMapping("/")
+    public String index(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByUsername(auth.getName());
+        model.addAttribute(user);
+        return "/dashboard";
+    }
 
     @GetMapping("/login")
     public String login() {
@@ -33,7 +43,7 @@ public class FinAnalystController {
         User existingUser = userService.findUserByUsername(user.getUsername());
 
         if (existingUser == null) {
-            userService.saveUser(user);
+            userService.createUser(user);
             model.addAttribute(user);
             return "/dashboard";
         }
@@ -41,12 +51,33 @@ public class FinAnalystController {
         return "/registration";
     }
 
-    @GetMapping("/")
-    public String index(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByUsername(auth.getName());
+    @GetMapping("/settings")
+    public String settings(User user, Model model) {
+
         model.addAttribute(user);
+        return "/settings";
+    }
+
+    @PutMapping("/settings")
+    public String updateUser(User user, Model model) {
+
+        // update user
+        if (userService.updateUser(user)) {
+            System.out.println("password changed successfully");
+        }
+
         return "/dashboard";
+    }
+
+    @DeleteMapping("/settings")
+    public String deleteUser(Model model) {
+
+        // delete user
+        if (userService.deleteUser()) {
+            System.out.println("user deleted successfully");
+        }
+
+        return "/login";
     }
 
     @GetMapping("/admin/cpanel")
